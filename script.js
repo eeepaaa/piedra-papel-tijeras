@@ -19,7 +19,7 @@ function userPick() {
 	return finalPick;
 }
 
-function juego() {
+function juego(rounds) {
 	
 	let userPoints = 0;
 	let computerPoints = 0;
@@ -53,7 +53,7 @@ function juego() {
 
 		i++;
 
-	} while (i < 5);
+	} while (i < rounds);
 	
 	if (userPoints > computerPoints) {
 		return '¡Felicitaciones, ganaste!'; 
