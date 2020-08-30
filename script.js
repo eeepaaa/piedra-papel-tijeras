@@ -1,174 +1,65 @@
-let choices = ["Piedra", "Papel", "Tijeras"];
+const picks = ['Piedra', 'Papel', 'Tijeras'];
+const userWin = '¡Bien! Has ganado esta ronda.';
+const computerWin = '¡Qué mal! Has perdido esta ronda.';
+const tieRound = 'Tú y la computadora eligieron lo mismo así que han empatado esta ronda.';
+let userPicks;
+let computerPicks;
 
-// Juega el AI
-function computerPlay() {
-	AiPicks = choices[Math.floor(Math.random() * choices.length)];
-	AiPicked = AiPicks.toString();
-	return AiPicked;
-}	
+function computerTurn() {
+	let computerPick = picks[Math.floor(Math.random() * picks.length)];
+	computerPick = computerPick.toString();
+	return computerPick;
+}
 
-// Input de la persona
-function playerInput() {
-	let answer = prompt("Ingresa una de las siguientes opciones: Piedra, Papel o Tijeras.");
-	input = answer.toString();
-	inputUpper = answer.toUpperCase();
-	firstLetterUpper = inputUpper.substr(0, 1);
-	rest = input.toLowerCase();
-	restLower = rest.substr(1);
-	finalInput = firstLetterUpper + restLower;
-	return finalInput;
-} 
+function userPick() {
+	let pick = prompt('Declara tu elección', '¿Piedra, Papel o Tijeras?')
+	let input = pick.toString().toUpperCase().substr(0, 1);
+	let rest = pick.toString().toLowerCase().substr(1);
+	const finalPick = input + rest;
+	return finalPick;
+}
+
+function juego() {
 	
-// Mensajes 
-let playerWin = "Has ganado esta ronda.";
-let computerWin = "Has perdido esta ronda.";
-let tie = "Has empatado."
+	let userPoints = 0;
+	let computerPoints = 0;
+	let i = 0;
 
-// Jugadores 
-let playerSelection;
-let computerSelection;
+	do {
+		userPicks = userPick();
+		computerPicks = computerTurn();
+
+		if (userPicks === 'Tijeras' && computerPicks === 'Papel') {
+			userPoints++;
+			console.log(userWin + ' Has sumado 1 punto; y ahora tienes ' + userPoints + ' en total.');
+		} else if (userPicks === 'Tijeras' && computerPicks === 'Piedra') {
+			computerPoints++;
+			console.log(computerWin + ' La computadora ha sumado 1 punto; y ahora tiene ' + computerPoints + ' en total.');
+		}  else if (userPicks === 'Papel' && computerPicks === 'Piedra') {
+			userPoints++;
+			console.log(userWin + ' Has sumado 1 punto; y ahora tienes ' + userPoints + ' en total.');
+		} else if (userPicks === 'Papel' && computerPicks === 'Tijeras') {
+			computerPoints++;
+			console.log(computerWin + ' La computadora ha sumado 1 punto; y ahora tiene ' + computerPoints + ' en total.');
+		} else if (userPicks === 'Piedra' && computerPicks === 'Tijeras') {
+			userPoints++;
+			console.log(userWin + ' Has sumado 1 punto; y ahora tienes ' + userPoints + ' en total.' );
+		} else if (userPicks === 'Piedra' && computerPicks === 'Papel') {
+			computerPoints++;
+			console.log(computerWin + ' La computadora ha sumado 1 punto; y ahora tiene ' + computerPoints + ' en total.');
+		} else {
+			console.log (tieRound);
+		}
+
+		i++;
+
+	} while (i < 5);
 	
-		
-// Juego 
-function playRound() {
-
-	let user = 0;
-	let computer = 0;
-	playerSelection = playerInput();
-	computerSelection = computerPlay();
-
-	if (playerSelection === "Tijeras" && computerSelection === "Papel") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Elegiste Tijeras y la computadora eligió Papel.");
-	} else if (playerSelection === "Tijeras" && computerSelection === "Piedra") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Elegiste Tijeras y la computadora eligió Piedra.");
-	} else if (playerSelection === "Papel" && computerSelection === "Piedra") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Eligiste Papel y la computadora eligió Piedra.");
-	} else if (playerSelection === "Papel" && computerSelection === "Tijeras") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Elegiste Papel y la computadora eligió Tijeras.");
-	} else if (playerSelection === "Piedra" && computerSelection === "Tijeras") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Elegiste Piedra y la computadora eligió Tijeras.");
-	} else if (playerSelection === "Piedra" && computerSelection === "Papel") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Eligiste Piedra y la computadora eligió Papel.");
+	if (userPoints > computerPoints) {
+		return '¡Felicitaciones, ganaste!'; 
+	} else if (userPoints < computerPoints) {
+		return 'Qué mal. Has perdido.'; 
 	} else {
-		console.log(tie + " Tú y la computadora eligieron lo mismo.");
-	}
-
-
-	// Repitición #2
-	playerSelection = playerInput();
-	computerSelection = computerPlay();
-
-	if (playerSelection === "Tijeras" && computerSelection === "Papel") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Elegiste Tijeras y la computadora eligió Papel.");
-	} else if (playerSelection === "Tijeras" && computerSelection === "Piedra") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Elegiste Tijeras y la computadora eligió Piedra.");
-	} else if (playerSelection === "Papel" && computerSelection === "Piedra") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Eligiste Papel y la computadora eligió Piedra.");
-	} else if (playerSelection === "Papel" && computerSelection === "Tijeras") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Elegiste Papel y la computadora eligió Tijeras.");
-	} else if (playerSelection === "Piedra" && computerSelection === "Tijeras") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Elegiste Piedra y la computadora eligió Tijeras.");
-	} else if (playerSelection === "Piedra" && computerSelection === "Papel") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Eligiste Piedra y la computadora eligió Papel.");
-	} else {
-		console.log(tie + " Tú y la computadora eligieron lo mismo.");
-	}
-
-	// Repitición #3
-	playerSelection = playerInput();
-	computerSelection = computerPlay();
-
-	if (playerSelection === "Tijeras" && computerSelection === "Papel") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Elegiste Tijeras y la computadora eligió Papel.");
-	} else if (playerSelection === "Tijeras" && computerSelection === "Piedra") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Elegiste Tijeras y la computadora eligió Piedra.");
-	} else if (playerSelection === "Papel" && computerSelection === "Piedra") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Eligiste Papel y la computadora eligió Piedra.");
-	} else if (playerSelection === "Papel" && computerSelection === "Tijeras") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Elegiste Papel y la computadora eligió Tijeras.");
-	} else if (playerSelection === "Piedra" && computerSelection === "Tijeras") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Elegiste Piedra y la computadora eligió Tijeras.");
-	} else if (playerSelection === "Piedra" && computerSelection === "Papel") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Eligiste Piedra y la computadora eligió Papel.");
-	} else {
-		console.log(tie + " Tú y la computadora eligieron lo mismo.");
-	}
-
-	// Repitición #4
-	playerSelection = playerInput();
-	computerSelection = computerPlay();
-
-	if (playerSelection === "Tijeras" && computerSelection === "Papel") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Elegiste Tijeras y la computadora eligió Papel.");
-	} else if (playerSelection === "Tijeras" && computerSelection === "Piedra") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Elegiste Tijeras y la computadora eligió Piedra.");
-	} else if (playerSelection === "Papel" && computerSelection === "Piedra") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Eligiste Papel y la computadora eligió Piedra.");
-	} else if (playerSelection === "Papel" && computerSelection === "Tijeras") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Elegiste Papel y la computadora eligió Tijeras.");
-	} else if (playerSelection === "Piedra" && computerSelection === "Tijeras") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Elegiste Piedra y la computadora eligió Tijeras.");
-	} else if (playerSelection === "Piedra" && computerSelection === "Papel") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Eligiste Piedra y la computadora eligió Papel.");
-	} else {
-		console.log(tie + " Tú y la computadora eligieron lo mismo.");
-	}
-
-	// Repitición #5
-	playerSelection = playerInput();
-	computerSelection = computerPlay();
-
-	if (playerSelection === "Tijeras" && computerSelection === "Papel") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Elegiste Tijeras y la computadora eligió Papel.");
-	} else if (playerSelection === "Tijeras" && computerSelection === "Piedra") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Elegiste Tijeras y la computadora eligió Piedra.");
-	} else if (playerSelection === "Papel" && computerSelection === "Piedra") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Eligiste Papel y la computadora eligió Piedra.");
-	} else if (playerSelection === "Papel" && computerSelection === "Tijeras") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Elegiste Papel y la computadora eligió Tijeras.");
-	} else if (playerSelection === "Piedra" && computerSelection === "Tijeras") {
-		user++;
-		console.log("Tienes " + user + " puntos. " + playerWin + " Elegiste Piedra y la computadora eligió Tijeras.");
-	} else if (playerSelection === "Piedra" && computerSelection === "Papel") {
-		computer++;
-		console.log("La computadora tiene " + computer + " puntos. " + computerWin + " Eligiste Piedra y la computadora eligió Papel.");
-	} else {
-		console.log(tie + " Tú y la computadora eligieron lo mismo.");
-	}
-	
-	if (user === computer) {
-		console.log("Tú y la computadora han empatado.")
-	} else if (user < computer) {
-		console.log("Ha ganado la computadora.")
-	} else {
-		console.log("¡Has ganado!")
+		return '¡EMPATE!'
 	}
 }
