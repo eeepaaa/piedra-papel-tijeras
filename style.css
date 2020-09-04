@@ -1,0 +1,68 @@
+body, html {
+	margin: 0px; 
+	padding: 0px; 
+	font-family: 'Lato', sans-serif;
+	scroll-behavior: smooth; 
+}
+
+#header {
+	display: flex;
+	justify-content: center; 
+	align-items: center; 	
+	width: 0 auto;
+	height: 40px; 
+	border: 1px solid black; 
+	margin: 0px; 
+	padding: 0px;
+	background: linear-gradient(100deg, #233DBC, #D61E31, #D61E31, #233DBC);
+}
+
+.navlinks {
+	display: flex;
+	justify-content: center; 
+	align-items: center; 
+	text-transform: uppercase;
+        height: 35px;
+	width: 200px; 	
+	color: white ; 
+	font-weight: bolder;
+	text-decoration: none; 
+	margin: 0;
+}
+
+li:hover, li:active {
+	background: #233DBC;
+	border-radius: 10px; 
+	font-size: 20px; 
+	animation-name: mouseHover;
+	animation-duration: 0.3s;
+}
+
+@keyframes mouseHover {
+	50% {
+		flex-grow: 0.1;
+	}
+	100% {
+		flex-shrink: 0.1;
+	}
+}
+
+#title {
+	margin: 25vh 0 0 70px;
+	font-size: 55px;
+}
+
+img {
+	position: absolute;
+	height: 626px; 
+	width: 626px;
+	left: 45vw; 	
+	bottom: 20vh;
+}
+
+#instrucciones {
+	font-size: 40px;
+	position: absolute; 
+	top: 100vh;
+	margin-left: 40px; 
+}
