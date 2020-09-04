@@ -7,21 +7,32 @@
 		<link href='style.css' rel='stylesheet'/>
 		<title>Rock. Paper. Scissors</title>
 	</head>
-	<div id='home'>
-		<nav id='barraNav'>
-			<ul id='navFlex'>
-				<li class='navLinks titles'><a href='#' class='reset'>instrucciones</a></li>
-				<li class='navLinks titles'><a href='#' class='reset'>jugar</a></li>
-				<li class='navLinks titles'><a href='#' class='reset'>reiniciar</a></li>
-			</ul>
-		</nav>
-		<main id='front'>
-			<h1 class='titles'>¡Bienvenido!<br>Espero que estés <span style='color: red;'>listo</span>.</h1>
-			<p>¿Piedra, Papel o Tijeras?</p>
-			<button type='button' id='btnPlay' class='titles'>¡Estoy Listo!</button>
-			<figure id='iconsFlex'>
-				<img id='icons' src='images/rock.png'/>
-				<img id='icons' src='images/paper.png'/>
-				<img id='icons' src='images/scissors.png'/>
-			</figure>
-		</main>
+	<body>
+		<div id='home'>
+			<nav id='barraNav'>
+				<ul id='navFlex'>
+					<li class='navLinks titles'><a href='#inst' class='reset'>instrucciones</a></li>
+					<li class='navLinks titles'><a href='#juega' class='reset'>jugar</a></li>
+					<li class='navLinks titles'><a href='#' class='reset'>reiniciar</a></li>
+				</ul>
+			</nav>
+			<div id='front'>
+				<h1 class='titles'>¡<span style='color: red;'>Bienvenido</span>!<br>Espero que estés <span style='color: red;'>listo</span>.</h1>
+				<p>¿Piedra, Papel o Tijeras?</p>
+				<button type='button' id='btnPlay' class='titles'>¡Estoy Listo!</button>
+				<figure id='iconsFlex'>
+					<img id='icons' src='images/rock.png'/>
+					<img id='icons' src='images/paper.png'/>
+					<img id='icons' src='images/scissors.png'/>
+				</figure>
+			</div>
+			<div id='inst'>
+				<a href='#home' id='btnNav' class='reset titles'>ir al inicio</a>
+				<h1 class='titles'>instrucciones</h1>
+			</div>
+			<main id='juega'>
+				<h1 class='titles'>¿piedra, papel o tijeras?</h1>	
+			</main>
+		</div>
+	</body>
+</html>
