@@ -1,68 +1,103 @@
-body, html {
-	margin: 0px; 
-	padding: 0px; 
-	font-family: 'Lato', sans-serif;
-	scroll-behavior: smooth; 
-}
-
-#header {
-	display: flex;
-	justify-content: center; 
-	align-items: center; 	
-	width: 0 auto;
-	height: 40px; 
-	border: 1px solid black; 
-	margin: 0px; 
-	padding: 0px;
-	background: linear-gradient(100deg, #233DBC, #D61E31, #D61E31, #233DBC);
-}
-
-.navlinks {
-	display: flex;
-	justify-content: center; 
-	align-items: center; 
-	text-transform: uppercase;
-        height: 35px;
-	width: 200px; 	
-	color: white ; 
-	font-weight: bolder;
-	text-decoration: none; 
+body {
+	font-family: 'Poppins';
+	font-weight: 400;
 	margin: 0;
+	scroll-behavior: smooth;
 }
 
-li:hover, li:active {
-	background: #233DBC;
-	border-radius: 10px; 
-	font-size: 20px; 
-	animation-name: mouseHover;
-	animation-duration: 0.3s;
+.titles {
+	font-family: 'Oswald';
+	font-weight: 600;
 }
 
-@keyframes mouseHover {
-	50% {
-		flex-grow: 0.1;
-	}
-	100% {
-		flex-shrink: 0.1;
-	}
+#home {
+	height: 100vh;
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, .8), rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('images/front-page.jpg');
+	background-size: cover;
 }
 
-#title {
-	margin: 25vh 0 0 70px;
-	font-size: 55px;
+#barraNav {
+	background: linear-gradient(90deg, #0948B3, #FF2200, #0948B3);
+	width: 100vw;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
 }
 
-img {
-	position: absolute;
-	height: 626px; 
-	width: 626px;
-	left: 45vw; 	
-	bottom: 20vh;
+#navFlex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-#instrucciones {
-	font-size: 40px;
-	position: absolute; 
-	top: 100vh;
-	margin-left: 40px; 
+.navLinks {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+	font-size: 20px;
+	margin: 0 35px 0 35px;
+	width: 200px;
+	height: 35px;
+	list-style-type: none;
+}
+
+.navLinks:hover {
+	border-radius: 5px;
+	background: #196FFF;
+	animation-name: navHover;
+	animation-duration: 0.2s;
+}
+
+@keyframes navHover {
+	50% {width: 250px};
+	100% {width: 200px};
+}
+
+.reset {
+	text-decoration: none;
+	color: white; 
+}
+
+#front {
+	margin: 270px 0 0 40px;
+}
+
+main h1 {
+	font-size: 50px;
+	line-height: 55px;
+	color: white;
+	text-transform: uppercase;
+}
+
+main p {
+	font-size: 20px;
+	margin-top: -30px;	
+	color: white;
+	text-transform: uppercase;
+}
+
+#btnPlay {
+	margin: -10px 0 0 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+	border-radius: 5px;
+	height: 40px;
+	width: 200px;
+	background: linear-gradient(45deg, #0948B3, #FF2200);
+	color: white;
+	text-transform: uppercase;
+}
+
+#iconsFlex {
+	display: flex;
+}
+
+#icons {
+	width: 50px;
+	height: 50px;	
+	margin: 0 35px 0 0;
 }
