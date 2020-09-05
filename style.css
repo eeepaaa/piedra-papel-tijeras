@@ -135,12 +135,63 @@ body {
 
 
 #juega {
+	margin-top: auto;
 	height: 100vh;
-	background: blue;
-	margin-top: -23px;
+	display: grid;
+	grid-gap: 3px;
+	grid-template-columns: repeat(10, 1fr); 
+	grid-template-rows: repeat(10, 1fr);
+	grid-template-areas: 
+		't t t t t t t t t t'
+		'f f f r r l l l l l'
+		'f f f r r l l l l l'
+		'f f f r r l l l l l'
+		'p p g g g g g g c c' 
+		'p p g g g g g g c c'
+		'p p g g g g g g c c'
+		'p p g g g g g g c c'
+		'. . g g g g g g . .'
+		's s s s s s s s s s';
 }
 
 #juega h1 {
 	text-transform: uppercase;
 	font-size: 35px;
+	grid-area: t;
+       	background: red;	
+}
+
+#inputField {
+	background: red;
+	grid-area: f;
+}
+
+#rounds {
+	background: red;
+	grid-area: r;
+}
+
+#log {
+	background: red;
+	grid-area: l;
+}
+
+#playerSelect {
+	background: red;
+	grid-area: p;
+}
+
+#gameContent {
+	background: red;
+	grid-area: g;
+}
+
+#computerSelect {
+	background: red;
+	grid-area: c;
+}
+
+#score {
+	background: red;
+	grid-area: s;
 }
