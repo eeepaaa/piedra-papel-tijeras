@@ -1,6 +1,6 @@
 # Rock, Paper, Scissors
 
-##v1.0
+## v1.0
  
 Spanish version of the project assigned per TOP's request. It is to be played through the browser's Console.
 
@@ -12,11 +12,11 @@ I'm thankful I was intruduced to the concept of git early on; it was of great he
 
 I was sadly not able to make use of loops. I did not research properly, thus I ended up repeating the code several times throughout the function. 
 
-##v1.1
+## v1.1
 
 I modified the .js file to make proper use of loops. 
 
-##v2.0
+## v2.0
 
 I added a visual interface using both HTML and CSS. This time around I edited the code properly thus resulting in significantly less bugs overall when I tried to adjust minor details. 
 
@@ -28,4 +28,4 @@ The actual page is an absolute overkill, but I just wanted to practice and make 
 
 Unfortunately at this time I was not able to properly implement JavaScript. I will review my notes and do further research on the matter before attempting to apply .js so users can intereact with it. 
 
-###NOTE: The game is to be played in Spanish. 
+### NOTE: The game is to be played in Spanish. 
