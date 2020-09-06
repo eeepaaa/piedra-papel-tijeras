@@ -21,9 +21,9 @@
 				<p>¿Piedra, Papel o Tijeras?</p>
 				<button type='button' id='btnPlay' class='titles'>¡Estoy Listo!</button>
 				<figure id='iconsFlex'>
-					<img id='icons' src='images/rock.png'/>
-					<img id='icons' src='images/paper.png'/>
-					<img id='icons' src='images/scissors.png'/>
+					<img class='icons' src='images/rock.png'/>
+					<img class='icons' src='images/paper.png'/>
+					<img class='icons' src='images/scissors.png'/>
 				</figure>
 			</div>
 		</div>
@@ -32,14 +32,48 @@
 			<h1 class='titles'>instrucciones</h1>
 		</div>
 		<main id='juega'>
-			<h1 class='titles'>¿piedra, papel o tijeras?</h1>	
-			<div id='inputField'></div>
-			<div id='rounds'></div>
-			<div id='log'></div>
-			<div id='playerSelect'></div>
-			<div id='gameContent'></div>
-			<div id='computerSelect'></div>
-			<div id='score'></div>
+			<h2 class='titles'>¿piedra, papel o tijeras?</h2>	
+			<div id='inputField' class='boxes' style='margin-left: 25px; margin-right: 25px;'>
+				<form action='prueba.text'>
+					<label for='nombre'>¿Cómo te llamas?</label><br>
+					<input type='text' id='nombre' name='nombre' placeholder='Dayanamilexis Chiquinquirá'><br><br>
+					<label for='rounds'>¿Cuántas rondas jugarás?</label><br>
+					<input type='text' id='roundsPick' name='rounds' placeholder='5' style='margin: auto'><br><br>
+					<input type='submit' id='playBtn' class='titles' value='Jugar'>
+				</form>
+			</div>
+			<div id='rounds' class='boxes'>
+				<h2 class='titles'>ronda</h2>
+				<p>0</p>
+			</div>
+			<div id='log' class='boxes'>
+				<h2 class='titles'>mensajes</h2>
+				<p>Aún no has iniciado la partida.</p>
+			</div>
+			<div id='playerSelect'>
+				<h2 class='titles'>elige</h2>
+				<figure class='iconsPicks'>
+					<img class='iconsPick' src='images/rock.png'/>
+					<img class='iconsPick' src='images/paper.png'/>
+					<img class='iconsPick' src='images/scissors.png'/>
+				</figure>					
+			</div>
+			<div id='gameContent' class='boxes'>
+				<h2 class='titles'>presiona 'jugar' para comenzar</h2>
+			</div>
+			<div id='computerSelect'>
+				<h2 class='titles'>pc</h2>
+					<figure class='iconsPicks'>
+						<img class='iconsPick' src='images/rock.png'/>
+						<img class='iconsPick' src='images/paper.png'/>
+						<img class='iconsPick' src='images/scissors.png'/>
+					</figure>
+			</div>
+			<div id='score' class='boxes'>
+				<p><span id='playerName'>Jugador </span><span id='puntajePlayer'>0</span> : <span id='puntajeComp'>0</span> Computadora</p>
+			</div>
+			<a href='#inst' id='instBtn' class='reset titles'>instrucciones</a>
+			<a href='#' id='resetBtn' class='reset titles'>reiniciar</a>
 		</main>
 		<script src='script.js'></script>
 	</body>
