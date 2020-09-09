@@ -138,7 +138,6 @@ body {
 	margin-top: auto;
 	height: 100vh;
 	display: grid;
-	grid-gap: 3px;
 	grid-template-columns: repeat(10, 1fr); 
 	grid-template-rows: repeat(10, 1fr);
 	grid-template-areas: 
@@ -169,7 +168,7 @@ body {
 }
 
 .boxes {
-	margin: 15px;
+	margin: 5px;
 	border-radius: 10px;
 	border: 1px solid gray;
 	box-shadow: 0px 0px 5px 0px gray;
@@ -226,7 +225,9 @@ body {
 
 #log {
 	grid-area: l;
-	padding: 0px 10px 5px 10px; 
+	padding: 0px 5px 5px 10px; 
+	margin-right: 20px;
+	overflow-y: auto;
 }
 
 #log h2 {
@@ -237,7 +238,7 @@ body {
 
 #playerSelect {
 	grid-area: p;
-	margin: 25px;
+	margin: 20px;
 	border-radius: 10px;
 	border: 1px solid gray;
 	box-shadow: 0px 0px 5px 0px gray;
@@ -266,7 +267,7 @@ body {
 
 #computerSelect {
 	grid-area: c;
-	margin: 25px;
+	margin: 20px;
 	border-radius: 10px;
 	border: 1px solid gray;
 	box-shadow: 0px 0px 5px 0px gray;
