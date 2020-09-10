@@ -8,6 +8,23 @@ const computerScore = document.getElementById('computerScore');
 let rounds = document.getElementById('roundsPick').value;
 let userPicks;
 let computerPicks;
+let playerPicks = document.getElementById('prueba');
+let playerSelect;
+
+//No entiendo de dónde salió esto
+for(let i = 0; i < playerPicks.children.length; i++) {
+	(function(index){
+		playerPicks.children[i].onclick = function(){
+			alert(index);
+			playerSelect = picks[i];
+		}
+	})(i);
+}
+
+function reiniciar() {
+	document.getElementById('ronda').textContent = '0';
+	document.getElementById('mensaje').innerHTML = '';
+}
 
 function setJugador(){
  	const jugador = document.getElementById('nombre').value;
@@ -34,8 +51,7 @@ function juego() {
 	let computerPoints = 0;
 	let i = 0;
 	const rounds = document.getElementById('roundsPick').value;
-	document.getElementById('mensaje').innerHTML = '';
-	document.getElementById('ronda').textContent = '0';
+	reiniciar();
 	setJugador();
 
 	do {
