@@ -34,12 +34,12 @@
 		<main id='juega'>
 			<h2 class='titles'>¿piedra, papel o tijeras?</h2>	
 			<div id='inputField' class='boxes' style='margin-left: 25px; margin-right: 25px;'>
-				<form action='prueba.text'>
+				<form>
 					<label for='nombre'>¿Cómo te llamas?</label><br>
 					<input type='text' id='nombre' name='nombre' placeholder='Dayanamilexis Chiquinquirá'><br><br>
 					<label for='rounds'>¿Cuántas rondas jugarás?</label><br>
 					<input type='text' id='roundsPick' name='rounds' placeholder='5' style='margin: auto'><br><br>
-					<input type='submit' id='playBtn' class='titles' value='Jugar'>
+					<button type='button' onclick='juego();' id='playBtn' class='titles'>jugar</button>
 				</form>
 			</div>
 			<div id='rounds' class='boxes'>
@@ -70,7 +70,7 @@
 					</figure>
 			</div>
 			<div id='score' class='boxes'>
-				<p><span id='playerName'>Jugador </span><span id='puntajePlayer'>0</span> : <span id='puntajeComp'>0</span> Computadora</p>
+				<p><span id='playerName'>Jugador </span><span id='userScore'>0</span> : <span id='computerScore'>0</span> Computadora</p>
 			</div>
 			<a href='#inst' id='instBtn' class='reset titles'>instrucciones</a>
 			<a href='#' id='resetBtn' class='reset titles'>reiniciar</a>

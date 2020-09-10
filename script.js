@@ -2,8 +2,17 @@ const picks = ['Piedra', 'Papel', 'Tijeras'];
 const userWin = '¡Bien! Has ganado esta ronda.';
 const computerWin = 'Has perdido esta ronda.';
 const tieRound = 'Tú y la computadora eligieron lo mismo así que han empatado esta ronda.';
+const mensajeOutput = document.getElementById('mensaje');
+const userScore = document.getElementById('userScore');
+const computerScore = document.getElementById('computerScore');
+let rounds = document.getElementById('roundsPick').value;
 let userPicks;
 let computerPicks;
+
+function setJugador(){
+ 	const jugador = document.getElementById('nombre').value;
+	document.getElementById('playerName').textContent = jugador + ' ';	
+}
 
 function computerTurn() {
 	let computerPick = picks[Math.floor(Math.random() * picks.length)];
@@ -19,11 +28,15 @@ function userPick() {
 	return finalPick;
 }
 
-function juego(rounds) {
-	
+function juego() {
+
 	let userPoints = 0;
 	let computerPoints = 0;
 	let i = 0;
+	const rounds = document.getElementById('roundsPick').value;
+	document.getElementById('mensaje').innerHTML = '';
+	document.getElementById('ronda').textContent = '0';
+	setJugador();
 
 	do {
 		userPicks = userPick();
@@ -31,38 +44,50 @@ function juego(rounds) {
 
 		if (userPicks === 'Tijeras' && computerPicks === 'Papel') {
 			userPoints++;
-			console.log(userWin + ' Has sumado 1 punto; y ahora tienes ' + userPoints + ' en total.');
+			console.log(userWin + ' Has sumado 1 punto.');
 			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('mensaje').innerHTML += [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto; y ahora tienes ' + userPoints + ' en total.<br>'
+			mensajeOutput.innerHTML = [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
+			userScore.innerHTML = userPoints;
+			computerScore.innerHTML = computerPoints;
 		} else if (userPicks === 'Tijeras' && computerPicks === 'Piedra') {
 			computerPoints++;
-			console.log(computerWin + ' La computadora ha sumado 1 punto; y ahora tiene ' + computerPoints + ' en total.');
+			console.log(computerWin + ' La computadora ha sumado 1 punto.');
 			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('mensaje').innerHTML += [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto; y ahora tiene ' + computerPoints + ' en total.<br>'
+			mensajeOutput.innerHTML = [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
+			userScore.innerHTML = userPoints;
+			computerScore.innerHTML = computerPoints;
 		}  else if (userPicks === 'Papel' && computerPicks === 'Piedra') {
 			userPoints++;
-			console.log(userWin + ' Has sumado 1 punto; y ahora tienes ' + userPoints + ' en total.');
+			console.log(userWin + ' Has sumado 1 punto.');
 			document.getElementById('ronda').textContent = [i + 1];	
-			document.getElementById('mensaje').innerHTML += [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto; y ahora tienes ' + userPoints + ' en total.<br>';
+			mensajeOutput.innerHTML = [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
+			userScore.innerHTML = userPoints;
+			computerScore.innerHTML = computerPoints;
 		} else if (userPicks === 'Papel' && computerPicks === 'Tijeras') {
 			computerPoints++;
-			console.log(computerWin + ' La computadora ha sumado 1 punto; y ahora tiene ' + computerPoints + ' en total.');
+			console.log(computerWin + ' La computadora ha sumado 1 punto.');
 			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('mensaje').innerHTML += [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto; y ahora tiene ' + computerPoints + ' en total.<br>'
+			mensajeOutput.innerHTML = [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
+			userScore.innerHTML = userPoints;
+			computerScore.innerHTML = computerPoints;
 		} else if (userPicks === 'Piedra' && computerPicks === 'Tijeras') {
 			userPoints++;
-			console.log(userWin + ' Has sumado 1 punto; y ahora tienes ' + userPoints + ' en total.' );
+			console.log(userWin + ' Has sumado 1 punto.' );
 			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('mensaje').innerHTML += [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto; y ahora tienes ' + userPoints + ' en total.<br>';
+			mensajeOutput.innerHTML = [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
+			userScore.innerHTML = userPoints;
+			computerScore.innerHTML = computerPoints;	
 		} else if (userPicks === 'Piedra' && computerPicks === 'Papel') {
 			computerPoints++;
-			console.log(computerWin + ' La computadora ha sumado 1 punto; y ahora tiene ' + computerPoints + ' en total.');
+			console.log(computerWin + ' La computadora ha sumado 1 punto.');
 			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('mensaje').innerHTML += [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto; y ahora tiene ' + computerPoints + ' en total.<br>'
+			mensajeOutput.innerHTML = [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
+			userScore.innerHTML = userPoints;
+			computerScore.innerHTML = computerPoints;	
 		} else {
 			console.log (tieRound);
 			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('mensaje').innerHTML += [i + 1] + 'º: ' + tieRound + '<br>';
+			mensajeOutput.innerHTML = [i + 1] + 'º: ' + tieRound + '<br>' + document.getElementById('mensaje').innerHTML;
 		}
 
 		i++;
@@ -70,10 +95,10 @@ function juego(rounds) {
 	} while (i < rounds);
 	
 	if (userPoints > computerPoints) {
-		return '¡Felicitaciones, ganaste!'; 
+		mensajeOutput.innerHTML = ' *** ¡FELICITACIONES, GANASTE! ***<br>' + document.getElementById('mensaje').innerHTML;
 	} else if (userPoints < computerPoints) {
-		return 'Qué mal. Has perdido.'; 
+		mensajeOutput.innerHTML = ' *** ¡QUÉ MAL! HAS PERDIDO CONTRA LA COMPUTADORA. ***<br>' + document.getElementById('mensaje').innerHTML;
 	} else {
-		return '¡EMPATE!'
+		mensajeOutput.innerHTML = ' *** ¡EMPATE! ¿OTRA RONDA? ***<br>' + document.getElementById('mensaje').innerHTML;	
 	}
 }
