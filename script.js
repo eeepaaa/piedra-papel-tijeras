@@ -15,7 +15,6 @@ let playerSelect;
 for(let i = 0; i < playerPicks.children.length; i++) {
 	(function(index){
 		playerPicks.children[i].onclick = function(){
-			alert(index);
 			playerSelect = picks[i];
 		}
 	})(i);
@@ -24,6 +23,7 @@ for(let i = 0; i < playerPicks.children.length; i++) {
 function reiniciar() {
 	document.getElementById('ronda').textContent = '0';
 	document.getElementById('mensaje').innerHTML = '';
+	document.getElementById('do').textContent = "presiona 'jugar' para comenzar";
 }
 
 function setJugador(){
@@ -45,6 +45,10 @@ function userPick() {
 	return finalPick;
 }
 
+function messageUpdate (){
+	document.getElementById('do').textContent = '¿qué eliges?'
+}
+
 function juego() {
 
 	let userPoints = 0;
@@ -53,56 +57,64 @@ function juego() {
 	const rounds = document.getElementById('roundsPick').value;
 	reiniciar();
 	setJugador();
+	messageUpdate();
 
 	do {
 		userPicks = userPick();
 		computerPicks = computerTurn();
 
-		if (userPicks === 'Tijeras' && computerPicks === 'Papel') {
+		if (playerSelect === 'Tijeras' && computerPicks === 'Papel') {
 			userPoints++;
 			console.log(userWin + ' Has sumado 1 punto.');
 			document.getElementById('ronda').textContent = [i + 1];
+			document.getElementById('do').textContent = '¡GANASTE ESTA RONDA!';
 			mensajeOutput.innerHTML = [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
 			userScore.innerHTML = userPoints;
 			computerScore.innerHTML = computerPoints;
-		} else if (userPicks === 'Tijeras' && computerPicks === 'Piedra') {
+		} else if (playerSelect=== 'Tijeras' && computerPicks === 'Piedra') {
 			computerPoints++;
 			console.log(computerWin + ' La computadora ha sumado 1 punto.');
 			document.getElementById('ronda').textContent = [i + 1];
+			document.getElementById('do').textContent = 'PERDISTE ESTA RONDA';
 			mensajeOutput.innerHTML = [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
 			userScore.innerHTML = userPoints;
 			computerScore.innerHTML = computerPoints;
-		}  else if (userPicks === 'Papel' && computerPicks === 'Piedra') {
+		}  else if (playerSelect === 'Papel' && computerPicks === 'Piedra') {
 			userPoints++;
 			console.log(userWin + ' Has sumado 1 punto.');
-			document.getElementById('ronda').textContent = [i + 1];	
+			document.getElementById('ronda').textContent = [i + 1];
+			document.getElementById('do').textContent = '¡GANASTE ESTA RONDA!';
 			mensajeOutput.innerHTML = [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
 			userScore.innerHTML = userPoints;
 			computerScore.innerHTML = computerPoints;
-		} else if (userPicks === 'Papel' && computerPicks === 'Tijeras') {
+		} else if (playerSelect === 'Papel' && computerPicks === 'Tijeras') {
 			computerPoints++;
 			console.log(computerWin + ' La computadora ha sumado 1 punto.');
 			document.getElementById('ronda').textContent = [i + 1];
+			document.getElementById('do').textContent = 'PERDISTE ESTA RONDA';
 			mensajeOutput.innerHTML = [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
 			userScore.innerHTML = userPoints;
 			computerScore.innerHTML = computerPoints;
-		} else if (userPicks === 'Piedra' && computerPicks === 'Tijeras') {
+		} else if (playerSelect === 'Piedra' && computerPicks === 'Tijeras') {
 			userPoints++;
 			console.log(userWin + ' Has sumado 1 punto.' );
 			document.getElementById('ronda').textContent = [i + 1];
+			document.getElementById('do').textContent = '¡GANASTE ESTA RONDA!';
 			mensajeOutput.innerHTML = [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
 			userScore.innerHTML = userPoints;
 			computerScore.innerHTML = computerPoints;	
-		} else if (userPicks === 'Piedra' && computerPicks === 'Papel') {
+		} else if (playerSelect === 'Piedra' && computerPicks === 'Papel') {
 			computerPoints++;
 			console.log(computerWin + ' La computadora ha sumado 1 punto.');
 			document.getElementById('ronda').textContent = [i + 1];
+			document.getElementById('do').textContent = 'PERDISTE ESTA RONDA';
 			mensajeOutput.innerHTML = [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
 			userScore.innerHTML = userPoints;
 			computerScore.innerHTML = computerPoints;	
 		} else {
 			console.log (tieRound);
 			document.getElementById('ronda').textContent = [i + 1];
+			document.getElementById('do').textContent = 'EMPATE';
 			mensajeOutput.innerHTML = [i + 1] + 'º: ' + tieRound + '<br>' + document.getElementById('mensaje').innerHTML;
 		}
 
