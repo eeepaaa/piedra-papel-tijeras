@@ -28,4 +28,9 @@ The actual page is an absolute overkill, but I just wanted to practice and make 
 
 Unfortunately at this time I was not able to properly implement JavaScript. I will review my notes and do further research on the matter before attempting to apply .js so users can intereact with it. 
 
+## v2.1
+
+I've finally implemented JavaScript! The game will now start upon pressing a button; though user's input comes from the console. 
+
+
 ### NOTE: The game is to be played in Spanish. 
