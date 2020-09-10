@@ -32,5 +32,8 @@ Unfortunately at this time I was not able to properly implement JavaScript. I wi
 
 I've finally implemented JavaScript! The game will now start upon pressing a button; though user's input comes from the console. 
 
+## v2.2
+
+User can now choose its choice through the UI. 
 
 ### NOTE: The game is to be played in Spanish. 
