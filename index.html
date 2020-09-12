@@ -36,10 +36,10 @@
 			<div id='inputField' class='boxes' style='margin-left: 25px; margin-right: 25px;'>
 				<form>
 					<label for='nombre'>¿Cómo te llamas?</label><br>
-					<input type='text' id='nombre' name='nombre' placeholder='Dayanamilexis Chiquinquirá'><br><br>
+					<input type='text' id='nombre' name='nombre' placeholder='Dayanamilexis'><br><br>
 					<label for='rounds'>¿Cuántas rondas jugarás?</label><br>
-					<input type='text' id='roundsPick' name='rounds' placeholder='5' style='margin: auto'><br><br>
-					<button type='button' onclick='juego();' id='playBtn' class='titles'>jugar</button>
+					<input type='text' id='roundsPick' name='rounds' placeholder='Te recomiendo jugar 3' style='margin: auto'><br><br>
+					<button type='button' id='playBtn' class='titles'>jugar</button>
 				</form>
 			</div>
 			<div id='rounds' class='boxes'>
@@ -48,18 +48,18 @@
 			</div>
 			<div id='log' class='boxes'>
 				<h2 class='titles'>mensajes</h2>
-				<p id='mensaje'></p>
+				<p id='msg'></p>
 			</div>
 			<div id='playerSelect'>
 				<h2 class='titles'>elige</h2>
-				<figure id='prueba' class='iconsPicks'>
+				<figure id='picks' class='iconsPicks'>
 					<img class='iconsPick' src='images/rock.png'/>
 					<img class='iconsPick' src='images/paper.png'/>
 					<img class='iconsPick' src='images/scissors.png'/>
 				</figure>					
 			</div>
 			<div id='gameContent' class='boxes'>
-				<h2 id='do' class='titles'>presiona 'jugar' para comenzar</h2>
+				<h2 id='gameStep' class='titles'>presiona 'jugar' para comenzar</h2>
 			</div>
 			<div id='computerSelect'>
 				<h2 class='titles'>pc</h2>
@@ -73,7 +73,7 @@
 				<p><span id='playerName'>Jugador </span><span id='userScore'>0</span> : <span id='computerScore'>0</span> Computadora</p>
 			</div>
 			<a href='#inst' id='instBtn' class='reset titles'>instrucciones</a>
-			<a href='#juega' id='resetBtn' class='reset titles' onclick='reiniciar();'>reiniciar</a>
+			<a style='cursor: pointer' id='resetBtn' class='reset titles'>reiniciar</a>
 		</main>
 		<script src='script.js'></script>
 	</body>

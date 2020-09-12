@@ -1,132 +1,121 @@
-const picks = ['Piedra', 'Papel', 'Tijeras'];
+// Declaration of variables and functions 
+const picks = ['Piedra', 'Papel', 'Tijeras']; 
 const userWin = '¡Bien! Has ganado esta ronda.';
 const computerWin = 'Has perdido esta ronda.';
-const tieRound = 'Tú y la computadora eligieron lo mismo así que han empatado esta ronda.';
-const mensajeOutput = document.getElementById('mensaje');
+const tieRound = 'Tú y la computadora han elegido lo mismo.'
+const log = document.getElementById('log');
+const msg = document.getElementById('msg');
 const userScore = document.getElementById('userScore');
 const computerScore = document.getElementById('computerScore');
-let rounds = document.getElementById('roundsPick').value;
-let userPicks;
-let computerPicks;
-let playerPicks = document.getElementById('prueba');
-let playerSelect;
+const playerPick = document.getElementById('picks');
+const gameStep = document.getElementById('gameStep');
+const playBtn = document.getElementById('playBtn');
+const resetBtn = document.getElementById('resetBtn');
+const rounds = document.getElementById('roundsPick');
+const rondas = document.getElementById('ronda');
+let roundsPicked = rounds.value;
+let roundsCheck = parseInt(roundsPicked, 10);
+let ronda = parseInt(rondas.textContent, 10);
+let userPoints = 0;
+let computerPoints = 0;
 
-//No entiendo de dónde salió esto
-for(let i = 0; i < playerPicks.children.length; i++) {
-	(function(index){
-		playerPicks.children[i].onclick = function(){
-			playerSelect = picks[i];
-		}
-	})(i);
+// Restarts the game
+function restart() {
+	msg.innerHTML = '';
+	gameStep.textContent = 'presiona \'jugar\' para comenzar'; 
+	userPoints = 0;
+	computerPoints = 0;
+	console.log('Displayed data has been reset.');
+	userScore.textContent = 0;
+	computerScore.textContent = 0;
+	rondas.textContent = 0;
+	ronda = 0;
+	roundsPicked = rounds.value;
+	roundsCheck = parseInt(roundsPicked, 10);
 }
 
-function reiniciar() {
-	document.getElementById('ronda').textContent = '0';
-	document.getElementById('mensaje').innerHTML = '';
-	document.getElementById('do').textContent = "presiona 'jugar' para comenzar";
+resetBtn.addEventListener('click', restart);
+
+// Sets the player's name
+function setPlayer() {
+	const player = document.getElementById('nombre').value;
+	document.getElementById('playerName').textContent = player + ' ';
+	console.log('Player\'s name\'s been set');
 }
 
-function setJugador(){
- 	const jugador = document.getElementById('nombre').value;
-	document.getElementById('playerName').textContent = jugador + ' ';	
-}
-
+// Lets computer make a selection
 function computerTurn() {
 	let computerPick = picks[Math.floor(Math.random() * picks.length)];
 	computerPick = computerPick.toString();
 	return computerPick;
 }
 
-function userPick() {
-	let pick = prompt('Declara tu elección', '¿Piedra, Papel o Tijeras?')
-	let input = pick.toString().toUpperCase().substr(0, 1);
-	let rest = pick.toString().toLowerCase().substr(1);
-	const finalPick = input + rest;
-	return finalPick;
-}
-
-function messageUpdate (){
-	document.getElementById('do').textContent = '¿qué eliges?'
-}
-
-function juego() {
-
-	let userPoints = 0;
-	let computerPoints = 0;
-	let i = 0;
-	const rounds = document.getElementById('roundsPick').value;
-	reiniciar();
-	setJugador();
-	messageUpdate();
-
-	do {
-		userPicks = userPick();
-		computerPicks = computerTurn();
-
-		if (playerSelect === 'Tijeras' && computerPicks === 'Papel') {
-			userPoints++;
-			console.log(userWin + ' Has sumado 1 punto.');
-			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('do').textContent = '¡GANASTE ESTA RONDA!';
-			mensajeOutput.innerHTML = [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
-			userScore.innerHTML = userPoints;
-			computerScore.innerHTML = computerPoints;
-		} else if (playerSelect=== 'Tijeras' && computerPicks === 'Piedra') {
-			computerPoints++;
-			console.log(computerWin + ' La computadora ha sumado 1 punto.');
-			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('do').textContent = 'PERDISTE ESTA RONDA';
-			mensajeOutput.innerHTML = [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
-			userScore.innerHTML = userPoints;
-			computerScore.innerHTML = computerPoints;
-		}  else if (playerSelect === 'Papel' && computerPicks === 'Piedra') {
-			userPoints++;
-			console.log(userWin + ' Has sumado 1 punto.');
-			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('do').textContent = '¡GANASTE ESTA RONDA!';
-			mensajeOutput.innerHTML = [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
-			userScore.innerHTML = userPoints;
-			computerScore.innerHTML = computerPoints;
-		} else if (playerSelect === 'Papel' && computerPicks === 'Tijeras') {
-			computerPoints++;
-			console.log(computerWin + ' La computadora ha sumado 1 punto.');
-			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('do').textContent = 'PERDISTE ESTA RONDA';
-			mensajeOutput.innerHTML = [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
-			userScore.innerHTML = userPoints;
-			computerScore.innerHTML = computerPoints;
-		} else if (playerSelect === 'Piedra' && computerPicks === 'Tijeras') {
-			userPoints++;
-			console.log(userWin + ' Has sumado 1 punto.' );
-			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('do').textContent = '¡GANASTE ESTA RONDA!';
-			mensajeOutput.innerHTML = [i + 1] + 'º: ' + userWin + ' Has sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
-			userScore.innerHTML = userPoints;
-			computerScore.innerHTML = computerPoints;	
-		} else if (playerSelect === 'Piedra' && computerPicks === 'Papel') {
-			computerPoints++;
-			console.log(computerWin + ' La computadora ha sumado 1 punto.');
-			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('do').textContent = 'PERDISTE ESTA RONDA';
-			mensajeOutput.innerHTML = [i + 1] + 'º: ' + computerWin + ' La computadora ha sumado 1 punto.<br>' + document.getElementById('mensaje').innerHTML;
-			userScore.innerHTML = userPoints;
-			computerScore.innerHTML = computerPoints;	
-		} else {
-			console.log (tieRound);
-			document.getElementById('ronda').textContent = [i + 1];
-			document.getElementById('do').textContent = 'EMPATE';
-			mensajeOutput.innerHTML = [i + 1] + 'º: ' + tieRound + '<br>' + document.getElementById('mensaje').innerHTML;
-		}
-
-		i++;
-
-	} while (i < rounds);
+// Game rules 
+function game(choice) {
 	
-	if (userPoints > computerPoints) {
-		mensajeOutput.innerHTML = ' *** ¡FELICITACIONES, GANASTE! ***<br>' + document.getElementById('mensaje').innerHTML;
-	} else if (userPoints < computerPoints) {
-		mensajeOutput.innerHTML = ' *** ¡QUÉ MAL! HAS PERDIDO CONTRA LA COMPUTADORA. ***<br>' + document.getElementById('mensaje').innerHTML;
+	computerPick = computerTurn();
+
+	if ((choice == 'Tijeras' && computerPick == 'Papel') || (choice == 'Papel' && computerPick == 'Piedra') || (choice == 'Piedra' && computerPick == 'Tijeras')) {
+		gameStep.textContent = '¡GANASTE ESTA RONDA!';
+		userPoints++;
+		userScore.textContent = userPoints;
+	} else if ((computerPick == 'Tijeras' && choice == 'Papel') || (computerPick == 'Papel' && choice == 'Piedra') || (computerPick == 'Piedra' && choice == 'Tijeras')) {
+		gameStep.textContent = '¡PERDISTE ESTA RONDA!';
+		computerPoints++;
+		computerScore.textContent = computerPoints;
 	} else {
-		mensajeOutput.innerHTML = ' *** ¡EMPATE! ¿OTRA RONDA? ***<br>' + document.getElementById('mensaje').innerHTML;	
+		gameStep.textContent = '¡EMPATE ENTRE LA COMPUTADORA Y TÚ!'
 	}
+	msg.innerHTML += ronda + 1 + 'º: Elegiste \'' + choice + '\' y la computadora eligió \'' + computerPick + '\'.<br>';
+	console.log('You picked: \'' + choice + '\' and the computer picked: \'' + computerPick + '\'.');
+	ronda++;
+	document.getElementById('ronda').textContent = ronda;
+	if (ronda == roundsCheck) {
+		winner();
+	}
+	log.scrollTop = log.scrollTopMax;
 }
+
+// Checks for a winner 
+function winner() {
+	if (userPoints > computerPoints) {
+		gameStep.textContent = '¡GANASTE ESTA RONDA Y LA PARTIDA!';
+		msg.innerHTML += '<br>*** ¡FELICITACIONES, GANASTE LA PARTIDA! ***<br>';
+	} else if (userPoints < computerPoints) {
+		gameStep.textContent = 'PERDISTE ESTA RONDA Y LA PARTIDA';
+		msg.innerHTML += '<br>*** ¡QUÉ MAL! PERDISTE LA PARTIDA. ***<br>'
+	} else {
+		gameStep.textContent = 'EMPATE. ¿OTRA PARTIDA?';
+		msg.innerHTML += '<br>*** ¡EMPATE! ¿OTRA RONDA?<br>'
+	}
+
+	msg.innerHTML += '<br>HAZ CLICK EN EL BOTÓN \'JUGAR\' PARA JUGAR DE NUEVO.<br>';
+
+}
+
+// Adds an event to trigger a round to be played
+for(let i = 0; i < playerPick.children.length; i++ ) {
+	playerPick.children[i].onclick = function() {
+	choice = picks[i];
+	console.log('You\'ve selected ' + choice + ' and round #' + (ronda + 1) + ' has begun.');
+	game(choice);
+	};
+}
+
+// Disables picks until game starts
+for(let i = 0; i < playerPick.children.length; i++) {
+	playerPick.children[i].disabled = true;
+	console.log('Button ' + picks[i] + ' has been disabled.');
+}
+
+// Sets game to start upon pressing the button
+playBtn.addEventListener('click', function() {
+	for(let i = 0; i < playerPick.children.length; i++) {
+			playerPick.children[i].disabled = false;
+			console.log('Button ' +  picks[i] + ' has been enabled.')
+	}
+	restart();	
+	console.log(roundsPicked + ' rounds have been selected');
+	gameStep.textContent = '¿QUÉ ELIGES?';
+	setPlayer();
+}); 
