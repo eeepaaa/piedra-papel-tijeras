@@ -86,7 +86,7 @@ function winner() {
 		msg.innerHTML += '<br>*** ¡QUÉ MAL! PERDISTE LA PARTIDA. ***<br>'
 	} else {
 		gameStep.textContent = 'EMPATE. ¿OTRA PARTIDA?';
-		msg.innerHTML += '<br>*** ¡EMPATE! ¿OTRA RONDA?<br>'
+		msg.innerHTML += '<br>*** ¡EMPATE! ¿OTRA RONDA?***<br>'
 	}
 
 	msg.innerHTML += '<br>HAZ CLICK EN EL BOTÓN \'JUGAR\' PARA JUGAR DE NUEVO.<br>';

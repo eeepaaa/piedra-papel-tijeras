@@ -260,10 +260,15 @@ body {
 	height: 75px;
 	width: 75px;	
 	margin: 5px;
+	transition: transform .2s;
 }
 
 #picks .iconsPick {
 	cursor: pointer;
+}
+
+#picks .iconsPick:hover {
+	transform: scale(1.7);
 }
 
 #gameContent {
