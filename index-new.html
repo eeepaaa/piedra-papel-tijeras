@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8'/>
+		<meta name='viewport' content='width=device-width, initial-scale=1'/>
+		<link href='https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap' rel='stylesheet'/>
+		<link href='style-new.css' rel='stylesheet'/>
+		<title>eeepaaa's Piedra, Papel o Tijeras</title>
+	</head>
+	<body>
+		<main>
+			<h1 id='title' class='titles'>¿piedra? ¿papel? ¿tijeras?</h1>
+			<div id='userInfo' class='boxes'>
+				<form>
+					<label for='name'>Ingresa tu nombre:</label><br>
+					<input type='text' id='name' name='name' placeholder='Jugador'><br><br>
+					<label for='rounds'>Ingresa el número de rondas:</label><br>
+					<input type='text' id='rounds' name='rounds' placeholder='3 es lo común'><br><br>
+				</form>
+				<div class='flexDiv'>
+					<button type='button' id='startGame' class='titles buttons'>jugar</button>
+				</div>			
+			</div>
+			<div id='log' class='boxes'>
+				<h2 class='titles'>historial</h2>
+				<p>Aún no has iniciado una partida.</p>
+			</div>
+			<div id='userSelect' class='boxes'>
+				<h2 class='titles'>elige</h2>
+				<figure id='iconSelection'>
+					<img class='icons' src='images/rock.png'>
+					<img class='icons' src='images/paper.png'>
+					<img class='icons' src='images/scissors.png'>
+				</figure>
+			</div>
+			<div id='score' class='boxes'>
+				<p><span id='user'>tú</span> <span id='userScore'>0</span>:<span id='compScore'>0</span> computadora</p>
+			</div>
+			<div id='gameContent' class='boxes'>
+				<h2 class='titles'>haz click en 'jugar' para comenzar</h2>
+			</div>
+		</main>
+	</body>
+</html>
+
