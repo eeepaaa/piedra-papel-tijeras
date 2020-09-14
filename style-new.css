@@ -86,6 +86,7 @@ input {
 	-webkit-text-fill-color: white;
 	-moz-text-fill-color: white;
 	font-size: 0.8em;
+	cursor: pointer;
 }
 
 .icons {
@@ -111,16 +112,6 @@ input {
 #userInfo {
 	grid-area: i;
 	margin-left: 20px;
-}
-
-.animate {
-	display: relative;
-	animation: animate 1s 3;	
-}
-
-@keyframes animate {
-	50% {top: 125px};
-	100% {top: 0px};
 }
 
 #startGame {
