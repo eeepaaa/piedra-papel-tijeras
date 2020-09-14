@@ -113,6 +113,16 @@ input {
 	margin-left: 20px;
 }
 
+.animate {
+	display: relative;
+	animation: animate 1s 3;	
+}
+
+@keyframes animate {
+	50% {top: 125px};
+	100% {top: 0px};
+}
+
 #startGame {
 	margin-top: -10px;
 }
@@ -121,6 +131,7 @@ input {
 	grid-area: l;
 	margin-right: 20px;
 	padding-top: 0px;
+	overflow: auto;
 }
 
 #userSelect {
@@ -149,3 +160,4 @@ input {
 	margin-bottom: 10px;
 	padding-top: 0px;
 }
+
