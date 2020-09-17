@@ -75,6 +75,21 @@ input {
 	justify-content: center;
 }	
 
+#gameContent .flexDiv {
+	justify-content: space-around;
+	align-items: center;
+}
+
+#gameContent .flexDiv img {
+	transform: scale(2.2);
+}
+
+#gameContent p, h3 {
+	text-align: center;
+	font-size: 3.5em;
+	line-height: 20px;
+}
+
 .buttons {
 	height: 40px;
 	width: 100px;	

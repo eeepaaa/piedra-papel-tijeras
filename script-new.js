@@ -12,6 +12,8 @@ const userInfo = document.getElementById('userInfo');
 const log = document.getElementById('log');
 const gameContent = document.getElementById('gameContent');
 const userSelect = document.getElementById('userSelect');
+const left = document.getElementById('left');
+const right = document.getElementById('right');
 let currentRound = 0;
 let userPoints = 0;
 let compPoints = 0;
@@ -71,6 +73,10 @@ function checkEnd() {
 	for(let i = 0; i < iconSelection.children.length; i++) {
 		iconSelection.children[i].classList.remove('iconsEnable'); 
 	}
+	setTimeout(function() {
+		removeShadow(userSelect);
+		addShadow(log)
+	}, 1001);
 }
 
 //Enables picks until game starts 
@@ -101,14 +107,17 @@ function cannotPick() {
 
 //Game logic
 function game(x) {
-
+	
+	//Before checking game logic
 	computerPick = computerTurn();
 	addShadow(userSelect);
 	addShadow(gameContent);
 	currentRound++; 
-
-	addShadow(log);
-
+	setTimeout(function() {
+		addShadow(log);
+	}, 500);
+	
+	//Actual game logic
 	if ((x == 'Tijeras' && computerPick == 'Papel') || (x == 'Papel' && computerPick == 'Piedra') || (x == 'Piedra' && computerPick == 'Tijeras')) {
 		instruc.textContent = '¡ganaste esta ronda!'
 		userPoints++;
@@ -119,11 +128,17 @@ function game(x) {
 		instruc.textContent = '¡empate entre la computadora y tú!';
 	}
 
-	//removeShadow(gameContent);
-	//removeShadow(log);
+	//After game logic has been checked
 	msg.innerHTML += `${currentRound}º: Elegiste ${x} y la computadora eligió ${computerPick}<br>`; 
 	log.scrollTop = log.scrollTopMax;
 	updateScores();
+	setTimeout(function() {
+		removeShadow(gameContent);
+	}, 500);
+	setTimeout(function() {
+		removeShadow(log);
+		addShadow(userSelect);
+	}, 1000);
 }
 
 //Lets game begin
@@ -131,8 +146,11 @@ function begin() {
 	canPick();
 	letpick();
 	setName();
-	addShadow(userInfo);
-	addShadow(userSelect);
+	removeShadow(userSelect);
+	removeShadow(userInfo);
+	removeShadow(log);
+	removeShadow(gameContent);
+	userSelect.classList.add('boxShadow');
 	roundDisplay.textContent = 0;
 }
 
