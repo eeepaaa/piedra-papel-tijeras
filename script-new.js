@@ -161,6 +161,7 @@ function begin() {
 	canPick();
 	letpick();
 	setName();
+	removeShadow(log);
 	removeShadow(userSelect);
 	removeShadow(userInfo);
 	removeShadow(gameContent);
