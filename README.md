@@ -20,20 +20,17 @@ I modified the .js file to make proper use of loops.
 
 I added a visual interface using both HTML and CSS. This time around I edited the code properly thus resulting in significantly less bugs overall when I tried to adjust minor details. 
 
-I also realized I was fixated on the use of the 'flex' property, which at times turned counter-productive. I've now got a better understanding of the 'width', 'height', 'padding' and 'margin' properties as well as making proper use of the 'absolute' and 'relative' values of the position property. 
+I also realized I was fixated on the use of the 'flex' property, which at times turned counter-productive. I've now got a better understanding of the 'width', 'height', 'padding' and 'margin' properties as well as making proper use of the 'absolute' and 'relative' values of the position property. And last but not least, how to avoid margin-collapse. 
 
 I had a very easy and fun time using the 'grid' property. I think making use of it can significantly speed things up when designing the visual layout. 
-
-The actual page is an absolute overkill, but I just wanted to practice and make use of every concept I've learnt so far. I also decided to add an instructions section because I thought it could serve as practice for whatever concept I might or might need to practice in the future.
 
 Unfortunately at this time I was not able to properly implement JavaScript. I will review my notes and do further research on the matter before attempting to apply .js so users can intereact with it. 
 
 ## v2.1
 
-I've finally implemented JavaScript! The game will now start upon pressing a button; though user's input comes from the console. 
+I've finally implemented JavaScript! The game will now start after pressing the play button.
 
-## v2.2
-
-User can now choose its choice through the UI. 
+* Game can no longer be played through the console log. 
+* The game does not have a responsive layout as of right now, so it might look slightly 'off' if displayed on larger/smaller screens. 
 
 ### NOTE: The game is to be played in Spanish. 

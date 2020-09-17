@@ -81,7 +81,9 @@ input {
 }
 
 #gameContent .flexDiv img {
-	transform: scale(2.2);
+	/*transform: scale(2.2);*/
+	width: 150px;
+	height: 150px;
 }
 
 #gameContent p, h3 {

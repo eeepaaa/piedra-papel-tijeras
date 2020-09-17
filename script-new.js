@@ -108,37 +108,52 @@ function cannotPick() {
 //Game logic
 function game(x) {
 	
-	//Before checking game logic
+	//Updating display
 	computerPick = computerTurn();
+	if (computerPick == picks[0]) {
+		right.setAttribute('src', 'images/rock.png');
+	} else if (computerPick == picks[1]) {
+		right.setAttribute('src', 'images/paper.png');
+	} else {
+		right.setAttribute('src', 'images/scissors.png')
+	}
+
+	//Emphasizing selections
+	left.classList.toggle('iconsEnable');
+	right.classList.toggle('iconsEnable');
+	setTimeout(function() {
+		left.classList.toggle('iconsEnable');
+		right.classList.toggle('iconsEnable');
+	}, 300);
+
+	//Before checking game logic
 	addShadow(userSelect);
 	addShadow(gameContent);
 	currentRound++; 
-	setTimeout(function() {
-		addShadow(log);
-	}, 500);
 	
 	//Actual game logic
 	if ((x == 'Tijeras' && computerPick == 'Papel') || (x == 'Papel' && computerPick == 'Piedra') || (x == 'Piedra' && computerPick == 'Tijeras')) {
 		instruc.textContent = '¡ganaste esta ronda!'
 		userPoints++;
+		msg.innerHTML += `${currentRound}º: Ganaste esta ronda, y has sumado un punto. Tienes ${userPoints} en total.<br>`;
 	} else if ((computerPick == 'Tijeras' && x == 'Papel') || (computerPick == 'Papel' && x == 'Piedra') || (computerPick == 'Piedra' && x == 'Tijeras')) {
 		instruc.textContent = 'perdiste esta ronda';
 		compPoints++;
+		msg.innerHTML += `${currentRound}º: Perdiste esta ronda. La computadora ha sumado un punto; tiene ${userPoints} en total.<br>`;
 	} else {
 		instruc.textContent = '¡empate entre la computadora y tú!';
+		msg.innerHTML += `${currentRound}º: Empate entre ambos.<br>`;
 	}
 
 	//After game logic has been checked
-	msg.innerHTML += `${currentRound}º: Elegiste ${x} y la computadora eligió ${computerPick}<br>`; 
 	log.scrollTop = log.scrollTopMax;
 	updateScores();
 	setTimeout(function() {
 		removeShadow(gameContent);
-	}, 500);
+	}, 300);
 	setTimeout(function() {
-		removeShadow(log);
 		addShadow(userSelect);
-	}, 1000);
+	}, 300);
 }
 
 //Lets game begin
@@ -148,7 +163,6 @@ function begin() {
 	setName();
 	removeShadow(userSelect);
 	removeShadow(userInfo);
-	removeShadow(log);
 	removeShadow(gameContent);
 	userSelect.classList.add('boxShadow');
 	roundDisplay.textContent = 0;
@@ -166,8 +180,16 @@ function letpick() {
 		iconSelection.children[i].onclick = function () {
 			choice = picks[i]; 
 			game(choice);
+			if (choice == picks[0]) {
+				left.setAttribute('src','images/rock.png');
+			} else if (choice == picks[1]) {
+				left.setAttribute('src','images/paper.png');
+			} else {
+				left.setAttribute('src','images/scissors.png');
+			}
 		}
-	}	
+
+	}
 }
 
 //Resets Everythign
