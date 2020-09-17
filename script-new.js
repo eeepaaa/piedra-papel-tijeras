@@ -139,7 +139,7 @@ function game(x) {
 	} else if ((computerPick == 'Tijeras' && x == 'Papel') || (computerPick == 'Papel' && x == 'Piedra') || (computerPick == 'Piedra' && x == 'Tijeras')) {
 		instruc.textContent = 'perdiste esta ronda';
 		compPoints++;
-		msg.innerHTML += `${currentRound}º: Perdiste esta ronda. La computadora ha sumado un punto; tiene ${userPoints} en total.<br>`;
+		msg.innerHTML += `${currentRound}º: Perdiste esta ronda. La computadora ha sumado un punto; tiene ${compPoints} en total.<br>`;
 	} else {
 		instruc.textContent = '¡empate entre la computadora y tú!';
 		msg.innerHTML += `${currentRound}º: Empate entre ambos.<br>`;
