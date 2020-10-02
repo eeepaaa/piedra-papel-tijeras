@@ -28,6 +28,7 @@ function computerTurn() {
 //Sets player's name
 function setName() {
 	const name = document.getElementById('name').value;
+	if (name == '') return `Tú`;
 	user.textContent = name + ' ';
 	console.log(user.textContent + 'has been set as user\'s name');
 	return user;
@@ -76,7 +77,7 @@ function checkEnd() {
 	setTimeout(function() {
 		removeShadow(userSelect);
 		addShadow(log)
-	}, 1001);
+	}, 301);
 }
 
 //Enables picks until game starts 
@@ -171,6 +172,7 @@ function begin() {
 
 //Sets rounds
 function roundSet() {
+	if (document.getElementById('rounds').value == '') return 3; 
 	let rounds = parseInt(document.getElementById('rounds').value, 10);
 	return rounds;
 }
